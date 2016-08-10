@@ -1,6 +1,6 @@
 # globalien
 
-To run this application, execute the following command (from the project's root) and follow the instructions:
+To run this application, execute the following command (from the project root) and follow the instructions:
 
 `java -jar /out/artifacts/globalien_jar/globalien.jar help`
 
