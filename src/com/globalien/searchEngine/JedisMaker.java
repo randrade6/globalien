@@ -1,11 +1,7 @@
 package com.globalien.searchEngine;
 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -28,14 +24,11 @@ public class JedisMaker {
 		// assemble the directory name
 		String slash = File.separator;
 		String filename = "resources" + slash + "redis_url.txt";
-		URL fileURL = JedisMaker.class.getClassLoader().getResource(filename);
-                String filepath = URLDecoder.decode(fileURL.getFile(), "UTF-8");
-
-	    	StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder();
 		BufferedReader br;
 		try {
-                    br = new BufferedReader(new FileReader(filepath));
-		} catch (FileNotFoundException e1) {
+			br = new BufferedReader(new InputStreamReader(JedisMaker.class.getClassLoader().getResourceAsStream(filename)));
+		} catch (Exception e1) {
 			System.out.println("File not found: " + filename);
 			printInstructions();
 			return null;
