@@ -58,11 +58,10 @@ public class WikiCrawler {
 		if (url == null) {
 			return null;
 		}
-		if (index.isIndexed(url)) {
-			return null;
-		}
 		Elements paragraphs = wf.fetchWikipedia(url);
-		index.indexPage(url, paragraphs);
+		if (!index.isIndexed(url)) {
+			index.indexPage(url, paragraphs);
+		}
 		queueInternalLinks(paragraphs);
 		return url;
 	}

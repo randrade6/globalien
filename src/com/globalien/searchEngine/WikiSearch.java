@@ -114,7 +114,7 @@ public class WikiSearch {
 	 */
 	public List<Entry<String, Integer>> sort() {
 		List<Entry<String, Integer>> toReturn = map.entrySet().stream().sorted((entry1, entry2) ->
-				entry1.getValue() - entry2.getValue()).collect(Collectors.toList());
+				entry2.getValue() - entry1.getValue()).collect(Collectors.toList());
 		return toReturn;
 	}
 
